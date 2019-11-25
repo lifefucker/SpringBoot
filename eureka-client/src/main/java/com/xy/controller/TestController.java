@@ -1,5 +1,6 @@
 package com.xy.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 
 public class TestController {
 
+    @Value("${cluster.client-name}")
+    private String clientName;
+
     @PostMapping("/test01")
     public Object test01(@RequestParam String param){
         return "success";
@@ -23,7 +27,7 @@ public class TestController {
 
     @GetMapping("/test02")
     public Object test02(@RequestParam String param){
-        return "client2";
+        return clientName;
     }
 
 }

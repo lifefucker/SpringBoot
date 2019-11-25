@@ -1,0 +1,4 @@
+spring:
+  profiles:
+#    active: consumer1
+    active: consumer2
