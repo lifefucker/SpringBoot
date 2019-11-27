@@ -17,5 +17,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface PromotionClient {
 
     @GetMapping("/test/test02")
-    String testFeign(@RequestParam String param);
+    String testFeign(@RequestParam(value = "param") String param);
 }

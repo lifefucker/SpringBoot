@@ -17,3 +17,12 @@ eureka:
     lease-renewal-interval-in-seconds: 30
     # 发呆时间，即服务续约到期时间（缺省为90s）
     lease-expiration-duration-in-seconds: 90
+
+#feign
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic

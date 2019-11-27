@@ -23,6 +23,7 @@ public class TestController {
 
     @PostMapping("/testFeign")
     public Object testFeign(@RequestParam String param){
+//        return promotionClient.testFeign();
         return promotionClient.testFeign(param);
     }
 

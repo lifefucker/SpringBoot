@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableFeignClients(basePackages = {"com.xy.remote"})
-@EnableEurekaClient
+//@EnableEurekaClient
 @EnableDiscoveryClient
 public class FeignEurekaApplication {
 
