@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: eureka-client
+  boot:
+      admin:
+        client:
+        ### 注册当前服务到AdminUI-Server服务中
+          url: http://127.0.0.1:10401
 
 cluster:
   client-name: client1
@@ -20,10 +25,15 @@ eureka:
     lease-renewal-interval-in-seconds: 30
     # 发呆时间，即服务续约到期时间（缺省为90s）
     lease-expiration-duration-in-seconds: 90
-
+#actuator
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  endpoint:
+        health:
+          show-details: ALWAYS
+
+
 

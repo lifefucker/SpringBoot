@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: eureka-client
+  boot:
+      admin:
+        client:
+          url: http://127.0.0.1:10401
 
 cluster:
   client-name: client3
@@ -26,4 +30,8 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+      health:
+        show-details: ALWAYS
+
 

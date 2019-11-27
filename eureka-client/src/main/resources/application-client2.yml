@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: eureka-client
+  boot:
+        admin:
+          client:
+          ### 注册当前服务到AdminUI-Server服务中
+            url: http://127.0.0.1:10401
 
 cluster:
   client-name: client2
@@ -26,4 +31,7 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+        health:
+          show-details: ALWAYS
 

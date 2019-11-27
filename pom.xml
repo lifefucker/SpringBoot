@@ -25,6 +25,7 @@
 		<module>eureka-client</module>
 		<module>eureka-consumer</module>
 		<module>feign-eureka</module>
+		<module>actuator-admin-ui-server</module>
 	</modules>
 
 	<properties>
