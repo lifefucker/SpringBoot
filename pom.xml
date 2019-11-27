@@ -26,6 +26,7 @@
 		<module>eureka-consumer</module>
 		<module>feign-eureka</module>
 		<module>actuator-admin-ui-server</module>
+		<module>ribbon-feign-eureka</module>
 	</modules>
 
 	<properties>
