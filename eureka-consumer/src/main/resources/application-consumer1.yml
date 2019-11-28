@@ -9,6 +9,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:10001/eureka/,http://localhost:10002/eureka/,http://localhost:10003/eureka/
+    # 启用服务消费者从注册中心拉取服务列表的功能
+    fetch-registry: true
+    # 设置服务消费者从注册中心拉取服务列表的间隔
+    registry-fetch-interval-seconds: 30
   instance:
     instance-id: ${spring.application.name}:${server.port}
     # 设置微服务调用地址为IP优先（缺省为false）

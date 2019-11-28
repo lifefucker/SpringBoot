@@ -1,0 +1,58 @@
+server:
+  port: 10501
+spring:
+  application:
+    name: ribbon-feign-eureka
+
+rule:
+  #随机策略
+#  chosen: RandomRule
+  #轮训策略
+  chosen: RoundRobinRule
+
+##eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://lmy1:10001/eureka/,http://lmy2:10002/eureka/,http://lmy3:10003/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    # 设置微服务调用地址为IP优先（缺省为false）
+    prefer-ip-address: true
+    # 心跳时间，即服务续约间隔时间（缺省为30s）
+    lease-renewal-interval-in-seconds: 30
+    # 发呆时间，即服务续约到期时间（缺省为90s）
+    lease-expiration-duration-in-seconds: 90
+
+#feign
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+trade-promotion:
+  ribbon:
+    #轮询规则匹配,如果在程序中指定这里可以不用配置
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#http建立socket超时时间,毫秒
+    ConnectTimeout: 2000
+    #http读取响应socket超时时间
+    ReadTimeout: 5000
+    #同一台实例最大重试次数,不包括首次调用
+    MaxAutoRetries: 0
+    #重试负载均衡其他的实例最大重试次数,不包括首次server
+    MaxAutoRetriesNextServer: 2
+    # 是否所有操作都重试，POST请求注意多次提交错误。
+    # 默认false，设定为false的话，只有get请求会重试
+    OkToRetryOnAllOperations: true
+    #Ribbon脱离Eureka进行负载时【必须】配置此项
+    listOfServers: http://localhost:8085,http://localhost:8082
+
+#Ribbon脱离Eureka进行负载
+#ribbon:
+#  eureka:
+#    enabled: false
+
