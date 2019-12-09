@@ -27,6 +27,7 @@
 		<module>feign-eureka</module>
 		<module>actuator-admin-ui-server</module>
 		<module>ribbon-feign-eureka</module>
+		<module>hystrix-feign</module>
 	</modules>
 
 	<properties>

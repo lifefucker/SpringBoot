@@ -56,3 +56,7 @@ trade-promotion:
 #  eureka:
 #    enabled: false
 
+# logger
+logging:
+    config: classpath:logback.xml
+
